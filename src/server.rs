@@ -8,6 +8,7 @@ use records::{RecordRequest, RecordResponse};
 // 定义一个mod，然后引入proto文件
 pub mod records {
     // tonic::include_proto!("records");
+    // 修改路径之后需使用include!宏来导入.rs文件
     include!("../proto/records.rs");
 }
 
