@@ -5,4 +5,21 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+# 用于cargo run的时候指定bin文件: cargo run --bin server
+# 双括号[[bin]]部分，是TOML格式的数组。这意味着你可以在您的箱中写多个[[bin]]，这样就会生成几个可执行文件。
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[[bin]]
+name = "client"
+path = 'src/client.rs'
+
+# tonic，prost，tonic-build的版本有兼容问题，所以如果不是要最新版，就不要动这里的版本号
 [dependencies]
+tonic = "0.7"
+tokio = { version = "1", features = ["full"] }
+prost = "0.10"
+
+[build-dependencies]
+tonic-build = "0.7"
